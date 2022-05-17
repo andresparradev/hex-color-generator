@@ -1,0 +1,77 @@
+:root {
+  --background: tomato;
+  --font: "Prompt", sans-serif;
+  --shadow: rgba(51, 51, 51, 0.1);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  font-family: var(--font);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  height: 60px;
+  background-color: #212121;
+  box-shadow: 0 5px 5px 0 var(--shadow);
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+.content {
+  min-height: calc(100vh - 60px);
+  text-transform: uppercase;
+}
+
+.content .container {
+  padding-bottom: 2rem;
+  min-height: inherit;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+}
+
+.color {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  box-shadow: 0 5px 5px 0 var(--shadow);
+  transition: box-shadow 500ms;
+}
+
+.btn:hover {
+  box-shadow: none;
+}
