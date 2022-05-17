@@ -1,7 +1,10 @@
 const rootEl = document.querySelector(":root");
 const logoEl = document.querySelector("#logo");
 const textColorEl = document.querySelector("#color");
+const btnCopy = document.querySelector("#btn-copy");
 const btnGenerate = document.querySelector("#btn-generate");
+
+let color = null;
 
 function generateLogoColors() {
   const colors = ["red", "yellow", "green", "tomato", "purple", "blue"];
@@ -38,11 +41,13 @@ function generateRandomHexChar() {
 }
 
 function generateColor() {
-  let color = "#";
+  let colorGenerated = "#";
 
   for (let i = 0; i < 6; i++) {
-    color += generateRandomHexChar();
+    colorGenerated += generateRandomHexChar();
   }
+
+  color = colorGenerated;
 
   setBackgroundColor(color);
   setTextColor(color);
@@ -56,9 +61,18 @@ function setTextColor(color) {
   textColorEl.textContent = color;
 }
 
+function copyColor() {
+  if (navigator !== null) {
+    navigator.clipboard.writeText(color);
+    alert("Copied!");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   generateLogoColors();
   generateColor();
 });
+
+btnCopy.addEventListener("click", copyColor);
 
 btnGenerate.addEventListener("click", generateColor);
