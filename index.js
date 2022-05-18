@@ -3,8 +3,10 @@ const logoEl = document.querySelector("#logo");
 const textColorEl = document.querySelector("#color");
 const btnCopy = document.querySelector("#btn-copy");
 const btnGenerate = document.querySelector("#btn-generate");
+const btnPrevious = document.querySelector("#btn-previous");
 
 let color = null;
+let previousColor = null;
 
 function generateLogoColors() {
   const colors = ["red", "yellow", "green", "tomato", "purple", "blue"];
@@ -47,8 +49,13 @@ function generateColor() {
     colorGenerated += generateRandomHexChar();
   }
 
+  previousColor = color;
   color = colorGenerated;
 
+  setColor(color);
+}
+
+function setColor(color) {
   setBackgroundColor(color);
   setTextColor(color);
 }
@@ -68,14 +75,21 @@ function copyColor() {
   }
 }
 
+function setPreviousColor() {
+  if(previousColor) {
+    color = previousColor;
+    setColor(color);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   generateLogoColors();
   generateColor();
 });
 
 btnCopy.addEventListener("click", copyColor);
-
 btnGenerate.addEventListener("click", generateColor);
+btnPrevious.addEventListener("click", setPreviousColor);
 
 document.addEventListener("keypress", evt => {
   const keyCode = evt.code;

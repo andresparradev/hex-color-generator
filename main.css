@@ -48,7 +48,7 @@ body {
   padding-bottom: 2rem;
   min-height: inherit;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: flex-end;
 }
 
