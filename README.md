@@ -2,5 +2,5 @@
 
 ### 📝 Todo
 
-- [ ] Event for generator color with the space key.
+- [x] Event for generator color with the space key.
 - [ ] Button for get the previous color.

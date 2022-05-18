@@ -76,3 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
 btnCopy.addEventListener("click", copyColor);
 
 btnGenerate.addEventListener("click", generateColor);
+
+document.addEventListener("keypress", evt => {
+  const keyCode = evt.code;
+  keyCode === "Space" && generateColor();
+});
